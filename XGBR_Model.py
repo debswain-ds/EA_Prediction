@@ -1,4 +1,3 @@
-# If you haven’t already, install xgboost in Colab:
 !pip install xgboost --quiet
 
 import pandas as pd
@@ -11,12 +10,7 @@ from xgboost import XGBRegressor, callback as xgb_callback # Import callback mod
 from sklearn.feature_selection import SelectKBest, f_regression
 
 # 1) Load & prep data
-df = pd.read_csv('/content/ea_b3lyp_opt_all_mol_all_features.csv')
-
-# Drop the columns they asked to remove
-df = df.drop(columns=['mol-no','error_ea','smiles'], errors='ignore')
-
-# Drop any rows where y is missing
+df = pd.read_csv('features.csv')
 df = df.dropna(subset=['g4mp2_ea']).reset_index(drop=True)
 
 # Split out X/y
