@@ -6,8 +6,7 @@ from sklearn.metrics import mean_absolute_error
 import xgboost as xgb
 
 # 1) Load data
-df = pd.read_csv("/content/ea_b3lyp_opt_all_mol_all_features.csv")
-df = df.drop(columns=["mol-no","error_ea","smiles"], errors="ignore")
+df = pd.read_csv("features.csv")
 df = df.dropna(subset=["g4mp2_ea"]).reset_index(drop=True)
 
 y = df.pop("g4mp2_ea")
